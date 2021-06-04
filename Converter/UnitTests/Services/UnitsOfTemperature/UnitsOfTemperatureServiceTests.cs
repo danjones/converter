@@ -25,5 +25,20 @@ namespace UnitTests.Services.UnitsOfTemperature
 
             Assert.AreEqual(3, results.Count());
         }
+
+        [TestMethod]
+        public void GetUnitOfTemperature_ReturnsItem()
+        {
+            var result = service.GetUnitOfTemperature(1);
+
+            Assert.IsNotNull(result);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void GetUnitOfTemperature_ThrowsExceptionWhenIdDoesNotExist()
+        {
+            var result = service.GetUnitOfTemperature(99);
+        }
     }
 }
