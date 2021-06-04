@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Services.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,14 +16,16 @@ namespace Services.UnitsOfTemperature
                 (3, "Farenheit")
             };
 
-        public IEnumerable<(int Id, string Name)> GetUnitsOfTemperature()
+        public IEnumerable<UnitOfTemperatureViewModel> GetUnitsOfTemperature()
         {
-            return unitsOfTemperature;
+            return unitsOfTemperature.Select(x => new UnitOfTemperatureViewModel(x.Id, x.Name)); ;
         }
 
-        public (int Id, string Name) GetUnitOfTemperature(int id)
+        public UnitOfTemperatureViewModel GetUnitOfTemperature(int id)
         {
-            return unitsOfTemperature.Single(x => x.Id == id);
+            return unitsOfTemperature
+                .Select(x => new UnitOfTemperatureViewModel(x.Id, x.Name))
+                .Single(x => x.Id == id);
         }
     }
 }
