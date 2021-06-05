@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Services.UnitsOfTemperature;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,18 +13,34 @@ namespace Web.Controllers
     [ApiController]
     public class UnitsOfTemperatureController : ControllerBase
     {
+        private readonly IUnitsOfTemperatureService unitsOfTemperatureService;
+
+        public UnitsOfTemperatureController(IUnitsOfTemperatureService unitsOfTemperatureService)
+        {
+            this.unitsOfTemperatureService = unitsOfTemperatureService;
+        }
+
         // GET: api/<UnitsOfTemperatureController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            var models = unitsOfTemperatureService.GetUnitsOfTemperature();
+            return Ok(models);
         }
 
         // GET api/<UnitsOfTemperatureController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public IActionResult Get(int id)
         {
-            return "value";
+            try
+            {
+                var model = unitsOfTemperatureService.GetUnitOfTemperature(id);
+                return Ok(model);
+            }
+            catch (InvalidOperationException)
+            {
+                return NotFound();
+            }
         }
     }
 }
