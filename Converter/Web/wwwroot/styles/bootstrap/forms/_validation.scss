@@ -10,3 +10,11 @@
   @include form-validation-state($state, $data...);
 }
 // scss-docs-end form-validation-states-loop
+
+// extend is-invalid and is-valid for compatibility with angular validation class
+.ng-touched.ng-invalid {
+    @extend .is-invalid;
+}
+.ng-touched.ng-valid {
+    @extend .is-valid;
+}

@@ -1949,55 +1949,57 @@ textarea.form-control-lg {
 
 .was-validated :valid ~ .valid-feedback,
 .was-validated :valid ~ .valid-tooltip,
-.is-valid ~ .valid-feedback,
-.is-valid ~ .valid-tooltip {
+.is-valid ~ .valid-feedback, .ng-touched.ng-valid ~ .valid-feedback,
+.is-valid ~ .valid-tooltip, .ng-touched.ng-valid ~ .valid-tooltip {
   display: block; }
 
-.was-validated .form-control:valid, .form-control.is-valid {
+.was-validated .form-control:valid, .form-control.is-valid, .form-control.ng-touched.ng-valid {
   border-color: #198754;
   padding-right: calc(1.5em + 0.75rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right calc(0.375em + 0.1875rem) center;
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem); }
-  .was-validated .form-control:valid:focus, .form-control.is-valid:focus {
+  .was-validated .form-control:valid:focus, .form-control.is-valid:focus, .form-control.ng-touched.ng-valid:focus {
     border-color: #198754;
     box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25); }
 
-.was-validated textarea.form-control:valid, textarea.form-control.is-valid {
+.was-validated textarea.form-control:valid, textarea.form-control.is-valid, textarea.form-control.ng-touched.ng-valid {
   padding-right: calc(1.5em + 0.75rem);
   background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem); }
 
-.was-validated .form-select:valid, .form-select.is-valid {
+.was-validated .form-select:valid, .form-select.is-valid, .form-select.ng-touched.ng-valid {
   border-color: #198754; }
-  .was-validated .form-select:valid:not([multiple]):not([size]), .was-validated .form-select:valid:not([multiple])[size="1"], .form-select.is-valid:not([multiple]):not([size]), .form-select.is-valid:not([multiple])[size="1"] {
+  .was-validated .form-select:valid:not([multiple]):not([size]), .was-validated .form-select:valid:not([multiple])[size="1"], .form-select.is-valid:not([multiple]):not([size]), .form-select.ng-touched.ng-valid:not([multiple]):not([size]), .form-select.is-valid:not([multiple])[size="1"], .form-select.ng-touched.ng-valid:not([multiple])[size="1"] {
     padding-right: 4.125rem;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e"), url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
     background-position: right 0.75rem center, center right 2.25rem;
     background-size: 16px 12px, calc(0.75em + 0.375rem) calc(0.75em + 0.375rem); }
-  .was-validated .form-select:valid:focus, .form-select.is-valid:focus {
+  .was-validated .form-select:valid:focus, .form-select.is-valid:focus, .form-select.ng-touched.ng-valid:focus {
     border-color: #198754;
     box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25); }
 
-.was-validated .form-check-input:valid, .form-check-input.is-valid {
+.was-validated .form-check-input:valid, .form-check-input.is-valid, .form-check-input.ng-touched.ng-valid {
   border-color: #198754; }
-  .was-validated .form-check-input:valid:checked, .form-check-input.is-valid:checked {
+  .was-validated .form-check-input:valid:checked, .form-check-input.is-valid:checked, .form-check-input.ng-touched.ng-valid:checked {
     background-color: #198754; }
-  .was-validated .form-check-input:valid:focus, .form-check-input.is-valid:focus {
+  .was-validated .form-check-input:valid:focus, .form-check-input.is-valid:focus, .form-check-input.ng-touched.ng-valid:focus {
     box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25); }
-  .was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
+  .was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label, .form-check-input.ng-touched.ng-valid ~ .form-check-label {
     color: #198754; }
 
 .form-check-inline .form-check-input ~ .valid-feedback {
   margin-left: .5em; }
 
-.was-validated .input-group .form-control:valid, .input-group .form-control.is-valid, .was-validated
+.was-validated .input-group .form-control:valid, .input-group .form-control.is-valid, .input-group .form-control.ng-touched.ng-valid, .was-validated
 .input-group .form-select:valid,
-.input-group .form-select.is-valid {
+.input-group .form-select.is-valid,
+.input-group .form-select.ng-touched.ng-valid {
   z-index: 1; }
-  .was-validated .input-group .form-control:valid:focus, .input-group .form-control.is-valid:focus, .was-validated
+  .was-validated .input-group .form-control:valid:focus, .input-group .form-control.is-valid:focus, .input-group .form-control.ng-touched.ng-valid:focus, .was-validated
   .input-group .form-select:valid:focus,
-  .input-group .form-select.is-valid:focus {
+  .input-group .form-select.is-valid:focus,
+  .input-group .form-select.ng-touched.ng-valid:focus {
     z-index: 3; }
 
 .invalid-feedback {
@@ -2022,55 +2024,57 @@ textarea.form-control-lg {
 
 .was-validated :invalid ~ .invalid-feedback,
 .was-validated :invalid ~ .invalid-tooltip,
-.is-invalid ~ .invalid-feedback,
-.is-invalid ~ .invalid-tooltip {
+.is-invalid ~ .invalid-feedback, .ng-touched.ng-invalid ~ .invalid-feedback,
+.is-invalid ~ .invalid-tooltip, .ng-touched.ng-invalid ~ .invalid-tooltip {
   display: block; }
 
-.was-validated .form-control:invalid, .form-control.is-invalid {
+.was-validated .form-control:invalid, .form-control.is-invalid, .form-control.ng-touched.ng-invalid {
   border-color: #dc3545;
   padding-right: calc(1.5em + 0.75rem);
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
   background-position: right calc(0.375em + 0.1875rem) center;
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem); }
-  .was-validated .form-control:invalid:focus, .form-control.is-invalid:focus {
+  .was-validated .form-control:invalid:focus, .form-control.is-invalid:focus, .form-control.ng-touched.ng-invalid:focus {
     border-color: #dc3545;
     box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25); }
 
-.was-validated textarea.form-control:invalid, textarea.form-control.is-invalid {
+.was-validated textarea.form-control:invalid, textarea.form-control.is-invalid, textarea.form-control.ng-touched.ng-invalid {
   padding-right: calc(1.5em + 0.75rem);
   background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem); }
 
-.was-validated .form-select:invalid, .form-select.is-invalid {
+.was-validated .form-select:invalid, .form-select.is-invalid, .form-select.ng-touched.ng-invalid {
   border-color: #dc3545; }
-  .was-validated .form-select:invalid:not([multiple]):not([size]), .was-validated .form-select:invalid:not([multiple])[size="1"], .form-select.is-invalid:not([multiple]):not([size]), .form-select.is-invalid:not([multiple])[size="1"] {
+  .was-validated .form-select:invalid:not([multiple]):not([size]), .was-validated .form-select:invalid:not([multiple])[size="1"], .form-select.is-invalid:not([multiple]):not([size]), .form-select.ng-touched.ng-invalid:not([multiple]):not([size]), .form-select.is-invalid:not([multiple])[size="1"], .form-select.ng-touched.ng-invalid:not([multiple])[size="1"] {
     padding-right: 4.125rem;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e"), url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
     background-position: right 0.75rem center, center right 2.25rem;
     background-size: 16px 12px, calc(0.75em + 0.375rem) calc(0.75em + 0.375rem); }
-  .was-validated .form-select:invalid:focus, .form-select.is-invalid:focus {
+  .was-validated .form-select:invalid:focus, .form-select.is-invalid:focus, .form-select.ng-touched.ng-invalid:focus {
     border-color: #dc3545;
     box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25); }
 
-.was-validated .form-check-input:invalid, .form-check-input.is-invalid {
+.was-validated .form-check-input:invalid, .form-check-input.is-invalid, .form-check-input.ng-touched.ng-invalid {
   border-color: #dc3545; }
-  .was-validated .form-check-input:invalid:checked, .form-check-input.is-invalid:checked {
+  .was-validated .form-check-input:invalid:checked, .form-check-input.is-invalid:checked, .form-check-input.ng-touched.ng-invalid:checked {
     background-color: #dc3545; }
-  .was-validated .form-check-input:invalid:focus, .form-check-input.is-invalid:focus {
+  .was-validated .form-check-input:invalid:focus, .form-check-input.is-invalid:focus, .form-check-input.ng-touched.ng-invalid:focus {
     box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25); }
-  .was-validated .form-check-input:invalid ~ .form-check-label, .form-check-input.is-invalid ~ .form-check-label {
+  .was-validated .form-check-input:invalid ~ .form-check-label, .form-check-input.is-invalid ~ .form-check-label, .form-check-input.ng-touched.ng-invalid ~ .form-check-label {
     color: #dc3545; }
 
 .form-check-inline .form-check-input ~ .invalid-feedback {
   margin-left: .5em; }
 
-.was-validated .input-group .form-control:invalid, .input-group .form-control.is-invalid, .was-validated
+.was-validated .input-group .form-control:invalid, .input-group .form-control.is-invalid, .input-group .form-control.ng-touched.ng-invalid, .was-validated
 .input-group .form-select:invalid,
-.input-group .form-select.is-invalid {
+.input-group .form-select.is-invalid,
+.input-group .form-select.ng-touched.ng-invalid {
   z-index: 2; }
-  .was-validated .input-group .form-control:invalid:focus, .input-group .form-control.is-invalid:focus, .was-validated
+  .was-validated .input-group .form-control:invalid:focus, .input-group .form-control.is-invalid:focus, .input-group .form-control.ng-touched.ng-invalid:focus, .was-validated
   .input-group .form-select:invalid:focus,
-  .input-group .form-select.is-invalid:focus {
+  .input-group .form-select.is-invalid:focus,
+  .input-group .form-select.ng-touched.ng-invalid:focus {
     z-index: 3; }
 
 .btn {
