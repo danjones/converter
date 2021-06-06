@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ConverterService } from './converter.service';
 
 @Component({
   selector: 'app-converter',
@@ -13,12 +14,19 @@ export class ConverterComponent implements OnInit {
     toId: new FormControl('', Validators.required)
   });
 
-  constructor() { }
+  constructor(private converterService: ConverterService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(): void {
-    alert();
+    if (this.convertForm.valid) {
+      this.converterService.getConversion(
+        this.convertForm.get('value')?.value,
+        this.convertForm.get('fromId')?.value,
+        this.convertForm.get('toId')?.value);
+    } else {
+      this.convertForm.markAllAsTouched();
+    }
   }
 }
