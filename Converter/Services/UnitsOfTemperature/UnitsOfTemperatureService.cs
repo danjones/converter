@@ -8,13 +8,21 @@ namespace Services.UnitsOfTemperature
 {
     public class UnitsOfTemperatureService : IUnitsOfTemperatureService
     {
-        private readonly List<(int Id, string Name)> unitsOfTemperature
-            = new List<(int Id, string Name)>
+        private readonly List<UnitOfTemperature> unitsOfTemperature
+            = new List<UnitOfTemperature>
             {
-                (1, "Kelvin"),
-                (2, "Celcius"),
-                (3, "Farenheit")
+                new UnitOfTemperature(1, "Kelvin", x => x, x => x),
+                new UnitOfTemperature(2, "Celcius", x => x + 273.15, x => x - 273.15),
+                new UnitOfTemperature(3, "Farenheit", x => (x + 459.67) /9 * 5, x => (x * 9 / 5) - 459.67)
             };
+
+        public double Convert(double value, int fromUnitId, int toUnitId)
+        {
+            var fromUnit = unitsOfTemperature.Single(x => x.Id == fromUnitId);
+            var toUnit = unitsOfTemperature.Single(x => x.Id == toUnitId);
+
+            return toUnit.ConvertFromKelvin(fromUnit.ConvertToKelvin(value));
+        }
 
         public IEnumerable<UnitOfTemperatureViewModel> GetUnitsOfTemperature()
         {

@@ -1,3 +1,4 @@
+import { DecimalPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ConverterService } from './converter.service';
@@ -17,7 +18,7 @@ export class ConverterComponent implements OnInit {
     toId: new FormControl('', Validators.required)
   });
 
-  constructor(private converterService: ConverterService) { }
+  constructor(private converterService: ConverterService, private decimalPipe: DecimalPipe) { }
 
   ngOnInit(): void {
     this.converterService.getUnitsOfTemperature()
@@ -31,7 +32,7 @@ export class ConverterComponent implements OnInit {
           // Build results string based on selected units and value
           const fromUnit = this.unitsOfTemperature.find(x => x.id === this.fromUnitId);
           const toUnit = this.unitsOfTemperature.find(x => x.id === this.toUnitId);
-          this.resultString = `${this.convertValue} ${fromUnit?.name} = ${result} ${toUnit?.name}`;
+          this.resultString = `${this.convertValue} ${fromUnit?.name} = ${this.decimalPipe.transform(result)} ${toUnit?.name}`;
         });
     } else {
       this.convertForm.markAllAsTouched();
