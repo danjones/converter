@@ -17,7 +17,7 @@ export class ConverterService {
     return this.http.get<UnitOfTemperature[]>(this.unitsOfTemperatureUrl);
   }
 
-  getConversion(value: number, fromUnitId: number, toUnitId: number) : void {
-    alert("Test");
+  getConversion(value: number, fromUnitId: number, toUnitId: number) : Observable<number> {
+    return this.http.get<number>(this.convertUrl);
   }
 }

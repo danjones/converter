@@ -9,7 +9,8 @@ import { UnitOfTemperature } from './unit-of-temperature';
   styleUrls: ['./converter.component.scss']
 })
 export class ConverterComponent implements OnInit {
-  unitsOfTemperature : UnitOfTemperature[] = [];
+  unitsOfTemperature: UnitOfTemperature[] = [];
+  resultString?: string = undefined;
   convertForm = new FormGroup({
     value: new FormControl('', Validators.required),
     fromId: new FormControl('', Validators.required),
@@ -25,12 +26,25 @@ export class ConverterComponent implements OnInit {
 
   onSubmit(): void {
     if (this.convertForm.valid) {
-      this.converterService.getConversion(
-        this.convertForm.get('value')?.value,
-        this.convertForm.get('fromId')?.value,
-        this.convertForm.get('toId')?.value);
+      this.converterService.getConversion(this.convertValue, this.fromUnitId, this.toUnitId)
+        .subscribe((result) => {
+          // Build results string based on selected units and value
+          const fromUnit = this.unitsOfTemperature.find(x => x.id === this.fromUnitId);
+          const toUnit = this.unitsOfTemperature.find(x => x.id === this.toUnitId);
+          this.resultString = `${this.convertValue} ${fromUnit?.name} = ${result} ${toUnit?.name}`;
+        });
     } else {
       this.convertForm.markAllAsTouched();
     }
+  }
+
+  get fromUnitId(): number {
+    return +this.convertForm.get('fromId')?.value;
+  }
+  get toUnitId(): number {
+    return +this.convertForm.get('toId')?.value;
+  }
+  get convertValue(): number {
+    return +this.convertForm.get('value')?.value;
   }
 }

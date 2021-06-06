@@ -19,5 +19,10 @@
       <label for="floatingSelect">To</label>
     </div>
     <button class="w-100 btn btn-lg btn-primary" type="submit">Convert</button>
+
+    <div *ngIf="resultString">
+      <hr class="my-4">
+      <span class="display-6">{{resultString}}</span>
+    </div>
   </form>
 </div>
