@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+import { UnitOfTemperature } from './unit-of-temperature';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,8 @@ export class ConverterService {
 
   constructor(private http: HttpClient) { }
 
-  getUnitsOfTemperature(): any {
-    return this.http.get<any>(this.unitsOfTemperatureUrl);
+  getUnitsOfTemperature(): Observable<UnitOfTemperature[]> {
+    return this.http.get<UnitOfTemperature[]>(this.unitsOfTemperatureUrl);
   }
 
   getConversion(value: number, fromUnitId: number, toUnitId: number) : void {
