@@ -2,7 +2,9 @@
 
 ## Overview
 
-A simple (but purposely over-engineered) temperature converter. It consists of a .NET 5 back-end and Angular client application. The units of temperature and conversions are provided by API.
+Demo available here: https://convert-demo.azurewebsites.net/
+
+A simple (but purposely over-engineered) temperature converter. It consists of a .NET 5 back-end and Angular client application. The units of temperature and conversions are provided by an API.
 
 - `GET /api/UnitsOfTemperature` - get all units of temperature in the system
 - `GET /api/UnitsOfTemperature/{id}` - get a single unit of temperature by id
