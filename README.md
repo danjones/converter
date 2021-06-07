@@ -42,4 +42,7 @@ To add a new temperature, simply add a new `UnitOfTemperature` item to the `unit
 - Angular page and API endpoints for adding/removing units of temperature?
 - Increase unit test coverage!
 - Security considerations?
+  - Rate limiting API requests
+  - Hiding sensitive response headers (Server, X-Powered-By, etc)
 - Assess accessibility
+- Demo site with CI/CD pipeline via AzureDevOps
